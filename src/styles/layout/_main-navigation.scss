@@ -1,0 +1,26 @@
+@use "../abstracts" as a;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: a.$primary-color-dark;
+  padding: 0 2rem;
+  height: 6rem;
+
+  &__title {
+    &,
+    &:link,
+    &:visited {
+      color: a.$primary-color-light;
+      text-decoration: none;
+      font-size: a.$font-size-lg;
+    }
+  }
+  
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}

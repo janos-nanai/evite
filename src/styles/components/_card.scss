@@ -1,0 +1,15 @@
+@use "../abstracts" as a; 
+@use "../base" as b; 
+
+.card {
+  height: 50rem;
+  width: 50rem;
+  background-color: #fff;
+  border-radius: 12px;
+  margin: 5rem auto;
+  overflow: hidden;
+
+  &__header {
+    background-color: a.$primary-color-light;
+  }
+}

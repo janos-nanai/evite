@@ -1,0 +1,42 @@
+@use "../abstracts" as a;
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    font-size: a.$font-size-default;
+    cursor: pointer;
+    border-radius: 4rem;
+    padding: 0.2rem 2rem;
+    text-decoration: none;
+    border: 1px solid;
+  }
+  
+  &--light {
+    &,
+    &:link,
+    &:visited {
+      color: a.$primary-color-dark;
+      background-color: a.$primary-color-light;
+      border-color: a.$primary-color-dark;
+    }
+    &:hover {
+      color: a.$primary-color-light;
+      background-color: a.$primary-color-dark;
+    }
+  }
+  
+  &--dark {
+    &,
+    &:link,
+    &:visited {
+      color: a.$primary-color-light;
+      background-color: a.$primary-color-dark;
+      border-color: a.$primary-color-light;
+    }
+    &:hover {
+      color: a.$primary-color-dark;
+      background-color: a.$primary-color-light;
+    }
+  }
+}
