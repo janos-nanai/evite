@@ -2,8 +2,8 @@
 @use "../base" as b; 
 
 .card {
-  height: 50rem;
-  width: 50rem;
+  height: 30rem;
+  width: 40rem;
   background-color: #fff;
   border-radius: 12px;
   margin: 5rem auto;
@@ -11,5 +11,12 @@
 
   &__header {
     background-color: a.$primary-color-light;
+    height: 7rem;
+    text-align: center;
+    padding-top: 1.2rem;
+  }
+
+  &__title {
+    font-size: a.$font-size-xl;
   }
 }

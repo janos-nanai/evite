@@ -4,10 +4,12 @@
   &,
   &:link,
   &:visited {
+    display: block;
     font-size: a.$font-size-default;
+    line-height: 1;
     cursor: pointer;
     border-radius: 4rem;
-    padding: 0.2rem 2rem;
+    padding: 0.8rem 2rem;
     text-decoration: none;
     border: 1px solid;
   }

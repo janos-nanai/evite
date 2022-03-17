@@ -1,0 +1,25 @@
+@use "../abstracts" as a;
+@use "../base/" as b;
+
+.form {
+  margin: 3rem;
+
+  &__input-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    flex: 1;
+    font-size: a.$font-size-default;
+  }
+
+  &__input {
+    flex: 3;
+    font-size: a.$font-size-default;
+    border: 1px solid a.$primary-color-dark;
+    border-radius: 2rem;
+    padding: 0 1rem;
+  }
+}
