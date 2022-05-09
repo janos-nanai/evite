@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Layout from "./components/Layout/Layout";
-import About from "./pages/About";
+import Layout from "./components/Layout/MainLayout";
+import Details from "./pages/Details";
 import Auth from "./pages/Auth";
-import Welcome from "./pages/Welcome";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Details />} />
           <Route path="/auth" element={<Auth />} />
         </Routes>
       </Layout>

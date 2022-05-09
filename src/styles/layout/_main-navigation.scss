@@ -1,26 +1,30 @@
 @use "../abstracts" as a;
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: a.$primary-color-dark;
-  padding: 0 2rem;
-  height: 6rem;
+.nav {
 
-  &__title {
-    &,
-    &:link,
-    &:visited {
-      color: a.$primary-color-light;
-      text-decoration: none;
-      font-size: a.$font-size-lg;
-    }
+  &__img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    z-index: a.$zindex-front;
   }
-  
-  &__navbar {
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
+
+  &__menu {
+    position: fixed;
+    padding: 9rem 5rem 2rem 2rem;
+    width: 25%;
+    min-width: 200px;
+    background-color: a.$primary-color-light;
+    z-index: a.$zindex-front;
+    top: 0;
+    right: 0;
+  }
+
+  &__burger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 2rem;
   }
 }

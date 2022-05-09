@@ -1,0 +1,14 @@
+@use "../abstracts/" as a;
+
+.footer {
+  position: relative;
+  min-height: 25vh;
+  
+  &__img {
+    position: absolute;
+    width: 300px;
+    z-index: a.$zindex-front;
+    right: 0;
+    bottom: 0;
+  }
+}

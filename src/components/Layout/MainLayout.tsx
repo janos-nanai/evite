@@ -1,4 +1,5 @@
 import React, { ReactChild } from "react";
+import MainFooter from "./MainFooter";
 import MainNavigation from "./MainNavigation";
 
 const Layout = (props: { children: ReactChild | ReactChild[] }) => {
@@ -6,6 +7,7 @@ const Layout = (props: { children: ReactChild | ReactChild[] }) => {
     <React.Fragment>
       <MainNavigation />
       <main>{props.children}</main>
+      <MainFooter />
     </React.Fragment>
   );
 };

@@ -1,16 +1,17 @@
-@use "../abstracts" as a; 
-@use "../base" as b; 
+@use "../abstracts" as a;
+@use "../base" as b;
 
 .card {
   height: 30rem;
   width: 40rem;
-  background-color: #fff;
+  background-color: a.$secondary-color-dull-1;
   border-radius: 12px;
   margin: 5rem auto;
   overflow: hidden;
 
   &__header {
-    background-color: a.$primary-color-light;
+    background-color: a.$secondary-color-dull-2;
+    text-transform: uppercase;
     height: 7rem;
     text-align: center;
     padding-top: 1.2rem;

@@ -1,0 +1,25 @@
+@use "../abstracts/" as a;
+
+.event-details {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  &__date {
+    font-family: "SweetHipster";
+    text-transform: lowercase;
+    font-size: 9.6rem;
+    padding: 2rem 5rem 2rem 0;
+    color: a.$secondary-color-pink-1;
+    white-space: nowrap;
+  }
+
+  &__place {
+    font-family: "Montserrat";
+    font-size: a.$font-size-default;
+    font-weight: 200;
+    padding: 2rem 0 2rem 3rem;
+    border-left: 7px solid a.$active-color;
+  }
+}

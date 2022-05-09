@@ -1,0 +1,30 @@
+@use "../abstracts/" as a;
+
+.quote {
+  position: absolute;
+  top: 27%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+
+  &__body {
+    position: relative;
+    font-size: a.$font-size-sm;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    width: 50vw;
+    min-width: 32rem;
+    max-width: 54rem;
+  }
+
+  &__author {
+    position: absolute;
+    font-size: a.$font-size-xs;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: 0.1rem;
+    bottom: -3.2rem;
+    right: -2rem;
+  }
+}

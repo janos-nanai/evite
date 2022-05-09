@@ -9,32 +9,44 @@
     line-height: 1;
     cursor: pointer;
     border-radius: 4rem;
-    padding: 0.8rem 2rem;
+    padding: 1rem 3rem;
     text-decoration: none;
-    border: 1px solid;
+    text-transform: uppercase;
   }
-  
+
+  &__nav {
+    border-style: none;
+    color: a.$active-color;
+
+    &--danger {
+      color: a.$warning-color !important;
+    }
+  }
+
+
   &--light {
     &,
     &:link,
     &:visited {
+      border: 1px solid;
       color: a.$primary-color-dark;
-      background-color: a.$primary-color-light;
-      border-color: a.$primary-color-dark;
+      background-color: a.$active-color;
+      border-color: a.$active-color;
     }
     &:hover {
       color: a.$primary-color-light;
       background-color: a.$primary-color-dark;
     }
   }
-  
+
   &--dark {
     &,
     &:link,
     &:visited {
+      border: 1px solid;
       color: a.$primary-color-light;
-      background-color: a.$primary-color-dark;
-      border-color: a.$primary-color-light;
+      // background-color: a.$primary-color-dark;
+      border-color: a.$active-color;
     }
     &:hover {
       color: a.$primary-color-dark;

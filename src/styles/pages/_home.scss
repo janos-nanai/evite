@@ -1,0 +1,21 @@
+@use "../abstracts/" as a;
+
+.section-hero {
+  height: 65vh;
+  min-height: 64rem;
+  position: relative;
+  background-color: a.$primary-color-darker;
+}
+
+.section-invite {
+  padding: 7.2rem;
+  font-weight: 350;
+  letter-spacing: 0.3rem;
+  font-size: a.$font-size-xl;
+  text-transform: uppercase;
+}
+
+.section-cta {
+  padding: 3rem 0;
+  background-color: a.$primary-color-darker;
+}
