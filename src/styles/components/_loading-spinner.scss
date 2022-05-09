@@ -1,0 +1,41 @@
+@use "../abstracts/" as a;
+
+.loading-spinner {
+  display: inline-block;
+  width: 6.4rem;
+  height: 6.4rem;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 4.6rem;
+    height: 4.6rem;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid rgba($color: a.$text-color-light-2, $alpha: 0.85);
+    border-color: rgba($color: a.$text-color-light-2, $alpha: 0.85) transparent
+      rgba($color: a.$text-color-light-2, $alpha: 0.85) transparent;
+    animation: loading-spinner 1.2s linear infinite;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
