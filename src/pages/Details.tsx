@@ -1,6 +1,6 @@
 import React from "react";
 
-const About = () => {
+const Details = () => {
   return (
     <React.Fragment>
       <h1 className="heading-primary">Details page</h1>
@@ -14,4 +14,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Details;

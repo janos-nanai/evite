@@ -11,6 +11,9 @@ import store from "./store";
 
 import "../src/styles/main.scss";
 
+authAccessReqInterceptor();
+authRefreshResInterceptor();
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

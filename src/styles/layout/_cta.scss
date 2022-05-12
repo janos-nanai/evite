@@ -5,10 +5,15 @@
   width: 33%;
   min-width: 24rem;
   margin: 3rem auto 0;
+  font-size: a.$font-size-default;
 
   &__heading {
     font-size: a.$font-size-2xl;
     letter-spacing: 0.1rem;
+  }
+
+  &__big-text {
+    font-size: a.$font-size-lg;
   }
 
   &__line {

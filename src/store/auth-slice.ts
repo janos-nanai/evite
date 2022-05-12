@@ -4,7 +4,7 @@ import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState: AuthState = {
-  voucherId: "",
+  guestId: "",
   accessToken: "",
   refreshToken: "",
   isLoading: false,
@@ -19,8 +19,11 @@ export const login = createAsyncThunk(
   `${namespace}/login`,
   async (args: { voucherId: string; voucherPass: string }) => {
     const response = await axios.post(`${API_URL}/auth/user-login`, args);
-    const { refreshToken } = response.data;
-    localStorage.setItem("localAuthData", JSON.stringify({ refreshToken }));
+    const { guestId, refreshToken } = response.data;
+    localStorage.setItem(
+      "localAuthData",
+      JSON.stringify({ guestId, refreshToken })
+    );
     return response.data;
   }
 );
@@ -47,16 +50,17 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     restoreAuthState(state, action) {
-      const { refreshToken } = action.payload;
+      const { guestId, refreshToken } = action.payload;
+      state.guestId = guestId;
       state.refreshToken = refreshToken;
       state.isLoading = false;
       state.error = "";
     },
     refreshAccessToken(state, action) {
-      const { voucherId, accessToken } = action.payload;
+      const { guestId, accessToken } = action.payload;
 
       state.isLoading = false;
-      state.voucherId = voucherId;
+      state.guestId = guestId;
       state.accessToken = accessToken;
       state.error = "";
     },
@@ -69,8 +73,8 @@ const authSlice = createSlice({
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.isLoading = false;
-      const { voucherId, accessToken, refreshToken } = action.payload;
-      state.voucherId = voucherId;
+      const { guestId, accessToken, refreshToken } = action.payload;
+      state.guestId = guestId;
       state.accessToken = accessToken;
       state.refreshToken = refreshToken;
     });
@@ -100,7 +104,7 @@ const authSlice = createSlice({
       state.error = "";
     });
     builder.addCase(logout.fulfilled, (state) => {
-      state.voucherId = "";
+      state.guestId = "";
       state.accessToken = "";
       state.refreshToken = "";
       state.isLoading = false;

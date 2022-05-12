@@ -1,6 +1,11 @@
+import { AppState } from "../../types/store-types";
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logout } from "../../store/auth-slice";
 
 import flowerTop from "../../assets/img/flowertop.png";
 
@@ -13,7 +18,11 @@ const NavMenu = (props: {
     <React.Fragment>
       {props.toggled && (
         <nav className="nav__menu u-drop-shadow">
-          <NavLink className="btn btn__nav" to="/" onClick={props.closeHandler}>
+          <NavLink
+            className="btn btn__nav"
+            to="/home"
+            onClick={props.closeHandler}
+          >
             kezdőlap
           </NavLink>
           <NavLink
@@ -32,7 +41,7 @@ const NavMenu = (props: {
           </NavLink>
           <NavLink
             className="btn btn__nav btn__nav--danger u-mt-2"
-            to="#"
+            to="/"
             onClick={props.logoutHandler}
           >
             kijelentkezés
@@ -44,13 +53,21 @@ const NavMenu = (props: {
 };
 
 const MainNavigation = () => {
+  const dispatch = useDispatch();
+
   const [navOpen, setNavOpen] = useState(false);
+
+  const refreshToken = useSelector(
+    (state: AppState) => state.auth.refreshToken
+  );
 
   const closeHandler = () => {
     setNavOpen(false);
   };
 
-  const logoutHandler = () => {};
+  const logoutHandler = () => {
+    dispatch(logout(refreshToken));
+  };
 
   return (
     <React.Fragment>

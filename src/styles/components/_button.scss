@@ -1,5 +1,10 @@
 @use "../abstracts" as a;
 
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn {
   &,
   &:link,
@@ -23,7 +28,6 @@
     }
   }
 
-
   &--light {
     &,
     &:link,
@@ -34,8 +38,8 @@
       border-color: a.$active-color;
     }
     &:hover {
-      color: a.$primary-color-light;
-      background-color: a.$primary-color-dark;
+      // color: a.$primary-color-light;
+      background-color: a.$success-color;
     }
   }
 
@@ -43,14 +47,28 @@
     &,
     &:link,
     &:visited {
-      border: 1px solid;
-      color: a.$primary-color-light;
-      // background-color: a.$primary-color-dark;
+      border: none;
+      color: a.$active-color;
+      background-color: transparent;
+    }
+    &:hover {
+      color: a.$primary-color-dark;
+      background-color: a.$success-color;
+    }
+  }
+
+  &--warning {
+    &,
+    &:link,
+    &:visited {
+      border: none;
+      color: a.$warning-color;
+      background-color: transparent;
       border-color: a.$active-color;
     }
     &:hover {
       color: a.$primary-color-dark;
-      background-color: a.$primary-color-light;
+      background-color: a.$warning-color;
     }
   }
 }

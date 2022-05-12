@@ -30,7 +30,7 @@ export const authRefreshResInterceptor = () => {
       const originalConfig = err.config;
       const { refreshToken } = store.getState().auth;
       if (
-        originalConfig.url !== `${API_URL}/auth/guest-login` &&
+        originalConfig.url !== `${API_URL}/auth/user-login` &&
         err.response &&
         refreshToken
       ) {
@@ -40,9 +40,11 @@ export const authRefreshResInterceptor = () => {
             const response = await axios.post(`${API_URL}/auth/token`, {
               token: refreshToken,
             });
-            const { id: adminId, token: accessToken } = response.data;
+            const { id: guestId, token: accessToken } = response.data;
 
-            store.dispatch(refreshAccessToken({ adminId, accessToken }));
+            // console.log(guestId, accessToken);
+
+            store.dispatch(refreshAccessToken({ guestId, accessToken }));
 
             return axios(originalConfig);
           } catch (_err) {

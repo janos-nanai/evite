@@ -11,8 +11,8 @@ const null_timestamp = 0;
 
 const namespace = "singleGuest";
 
-export const fetchOneByVoucherId = createAsyncThunk(
-  `${namespace}/fetchOneByVoucherId`,
+export const fetchOneById = createAsyncThunk(
+  `${namespace}/fetchOneById`,
   async (id: string) => {
     const response = await axios.get(`${API_URL}/${id}`);
     return response.data;
@@ -120,16 +120,16 @@ const singleGuestSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // fetchOneByVoucherId
-    builder.addCase(fetchOneByVoucherId.pending, (state) => {
+    // fetchOneById
+    builder.addCase(fetchOneById.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchOneByVoucherId.fulfilled, (state, action) => {
+    builder.addCase(fetchOneById.fulfilled, (state, action) => {
       state.isLoading = false;
       const guestData: GuestData = action.payload;
       state.data = guestData;
     });
-    builder.addCase(fetchOneByVoucherId.rejected, (state) => {
+    builder.addCase(fetchOneById.rejected, (state) => {
       state.isLoading = false;
     });
 
@@ -143,7 +143,7 @@ const singleGuestSlice = createSlice({
       state.data = updatedGuest;
     });
     builder.addCase(updateGuest.rejected, (state) => {
-      state.isLoading = true;
+      state.isLoading = false;
     });
 
     // addPartner

@@ -30,7 +30,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (authState.accessToken) {
-      navigate("/");
+      navigate("/home");
     }
   }, [authState.accessToken, navigate]);
 
