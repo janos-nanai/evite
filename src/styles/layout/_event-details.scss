@@ -13,6 +13,19 @@
     padding: 2rem 5rem 2rem 0;
     color: a.$secondary-color-pink-1;
     white-space: nowrap;
+
+    @include a.respond(tab-sm) {
+      font-size: 8rem;
+      padding: 0;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: 5rem;
+    }
+
+    @include a.respond(mobile-sm) {
+      font-size: 3rem;
+    }
   }
 
   &__place {
@@ -21,5 +34,19 @@
     font-weight: 200;
     padding: 2rem 0 2rem 3rem;
     border-left: 7px solid a.$active-color;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-xs;
+      padding: 1rem 0 1rem 1rem;
+      border-left: 3px solid a.$active-color;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-2xs;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: .6rem;
+    }
   }
 }

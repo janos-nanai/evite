@@ -6,6 +6,12 @@
   left: 63%;
   transform: translate(-50%, -50%);
 
+  @include a.respond(mobile-lg) {
+    top: 35%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+
   &__body {
     position: relative;
     font-size: a.$font-size-sm;
@@ -16,6 +22,19 @@
     width: 50vw;
     min-width: 32rem;
     max-width: 54rem;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-xs;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-2xs;
+      min-width: 29rem;
+    }
+
+    @include a.respond(mobile-sm) {
+      min-width: 24rem;
+    }
   }
 
   &__author {
@@ -25,6 +44,10 @@
     font-weight: 200;
     letter-spacing: 0.1rem;
     bottom: -3.2rem;
-    right: -2rem;
+    left: 0;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-2xs;
+    }
   }
 }

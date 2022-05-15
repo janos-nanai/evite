@@ -2,24 +2,37 @@
 
 .cta {
   font-family: "Montserrat";
-  width: 33%;
-  min-width: 30rem;
+  width: 50%;
+  min-width: 27rem;
   margin: 3rem auto 0;
   font-size: a.$font-size-default;
 
   &__heading {
     font-size: a.$font-size-2xl;
     letter-spacing: 0.1rem;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-xl;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-lg;
+    }
   }
 
   &__big-text {
     font-size: a.$font-size-lg;
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-default;
+    }
   }
 
   &__line {
     height: 1px;
     color: a.$secondary-color-pink-1;
     width: 55vw;
+    min-width: 27rem;
     margin: 1rem auto 0;
   }
 

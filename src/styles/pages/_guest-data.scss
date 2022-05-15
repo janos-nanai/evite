@@ -1,3 +1,9 @@
+@use "../abstracts/" as a;
+
 .guest-data {
   margin: 17rem 5rem;
+
+  @include a.respond(tab-port) {
+    margin: 17rem 1rem;
+  }
 }

@@ -13,6 +13,19 @@
   letter-spacing: 0.3rem;
   font-size: a.$font-size-xl;
   text-transform: uppercase;
+
+  @include a.respond(tab-sm) {
+    font-size: a.$font-size-lg;
+  }
+
+  @include a.respond(mobile-lg) {
+    padding: 4rem;
+    font-size: a.$font-size-default;
+  }
+
+  @include a.respond(mobile-sm) {
+    padding: 2rem;
+  }
 }
 
 .section-cta {

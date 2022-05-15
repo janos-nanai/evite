@@ -18,6 +18,18 @@ body {
   font-family: "SweetHipster";
   color: a.$secondary-color-pink-1;
   font-size: 22rem;
+
+  @include a.respond(tab-sm) {
+    font-size: 15rem;
+  }
+
+  @include a.respond(mobile-lg) {
+    font-size: 11rem;
+  }
+
+  @include a.respond(mobile-sm) {
+    font-size: 9rem;
+  }
 }
 
 .paragraph {

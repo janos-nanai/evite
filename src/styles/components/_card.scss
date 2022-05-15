@@ -9,12 +9,32 @@
   margin: 5rem auto;
   overflow: hidden;
 
+  @include a.respond(tab-port) {
+    width: 32rem;
+  }
+
+  @include a.respond(mobile-lg) {
+    width: 25rem;
+  }
+
   &--grid {
     margin: 0;
   }
 
   &--big {
     min-width: 90rem;
+
+    @include a.respond(tab-port) {
+      min-width: 70rem;
+    }
+
+    @include a.respond(tab-port) {
+      min-width: 40rem;
+    }
+
+    @include a.respond(mobile-lg) {
+      min-width: 30rem;
+    }
   }
 
   &__header {
@@ -31,6 +51,10 @@
   &__title {
     text-align: center;
     font-size: a.$font-size-xl;
+
+    @include a.respond(tab-port) {
+      font-size: a.$font-size-lg;
+    }
   }
 
   &__content {
