@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-auto-rows: auto;
+  gap: 2rem;
+
+  &__item {
+    &--big {
+      grid-column: span 2;
+    }
+  }
+}

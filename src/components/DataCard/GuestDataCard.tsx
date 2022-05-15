@@ -1,45 +1,45 @@
-import { ChildData } from "../../types/guest-types";
+import { AppState } from "../../types/store-types";
 
-import { useDispatch } from "react-redux";
-import { FaUserEdit, FaUserMinus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { FaUserEdit } from "react-icons/fa";
 
 import Card from "../UI/Card";
-import { deleteChild } from "../../store/single-guest-slice";
-import { openUpdateChildModal, setCurrentChildId } from "../../store/ui-slice";
+import { openUpdateGuestModal } from "../../store/ui-slice";
 
-const ChildDataCard = (props: { child: ChildData; grid?: boolean }) => {
+const GuestDataCard = () => {
   const dispatch = useDispatch();
 
   const {
-    id,
     firstName,
     lastName,
     // nickName,
-    age,
+    email,
+    phone,
     foodGlutenFree,
     foodLactoseFree,
     foodDiabetic,
-  } = props.child;
+  } = useSelector((state: AppState) => state.singleGuest.data!);
 
   const updateHandler = () => {
-    dispatch(setCurrentChildId(id));
-    dispatch(openUpdateChildModal());
-  };
-
-  const deleteHandler = () => {
-    dispatch(deleteChild(id!));
+    dispatch(openUpdateGuestModal());
   };
 
   return (
-    <Card grid={props.grid}>
+    <Card title="saját adataid" grid>
       <div className="card__content">
         <div className="card__name">{lastName}</div>
         <div className="card__name">{firstName}</div>
       </div>
       <div className="card__content">
-        <div className="card__data">
-          <span>kor:</span> <span>{age}</span>
+        <div className="card__data u-mt-1">
+          elérhetőségek:
+          <ul>
+            <li>email: {email ? email : "-"}</li>
+            <li>tel: {phone ? phone : "-"}</li>
+          </ul>
         </div>
+      </div>
+      <div className="card__content">
         <div className="card__data u-mt-1">
           speciális étkezési igény:
           <ul>
@@ -54,12 +54,12 @@ const ChildDataCard = (props: { child: ChildData; grid?: boolean }) => {
         <button className="btn btn--dark cta__btn" onClick={updateHandler}>
           módosít <FaUserEdit />
         </button>
-        <button className="btn btn--warning cta__btn" onClick={deleteHandler}>
+        {/* <button className="btn btn--warning cta__btn" onClick={deleteHandler}>
           töröl <FaUserMinus />
-        </button>
+        </button> */}
       </div>
     </Card>
   );
 };
 
-export default ChildDataCard;
+export default GuestDataCard;

@@ -4,7 +4,6 @@ import { GuestDataUpdate, PartnerData } from "../../types/guest-types";
 import React, {
   useCallback,
   useEffect,
-  useMemo,
   useState,
   ChangeEvent,
   FormEvent,
@@ -13,8 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
   FaUserPlus as AddUserIcon,
-  FaStepForward as ForwardIcon,
-  FaStepBackward as BackwardIcon,
+  FaChevronRight as ForwardIcon,
+  FaChevronLeft as BackwardIcon,
 } from "react-icons/fa";
 
 import Card from "../UI/Card";
@@ -22,6 +21,7 @@ import ChildDataCard from "../DataCard/ChildDataCard";
 import {
   updateGuest,
   addPartner,
+  updatePartner,
   deletePartner,
 } from "../../store/single-guest-slice";
 import FormInput from "../Form/FormInput";
@@ -232,28 +232,27 @@ const CTA = () => {
               value={phoneInput}
             />
 
-            <fieldset className="u-mt-3">
-              <legend>speciális étkezési igény</legend>
-              <div className="u-mt-1">
-                <FormCheckbox
-                  id="glutenfree"
-                  label="gluténmentes"
-                  checked={foodGlutenFreeInput}
-                  changeHandler={foodGlutenFreeInputHandler}
-                />
-                <FormCheckbox
-                  id="lactosefree"
-                  label="laktózmentes"
-                  checked={foodLactoseFreeInput}
-                  changeHandler={foodLactoseFreeInputHandler}
-                />
-                <FormCheckbox
-                  id="diabetic"
-                  label="diabetikus"
-                  checked={foodDiabeticInput}
-                  changeHandler={foodDiabeticInputHandler}
-                />
-              </div>
+            <fieldset className="form__fieldset u-mt-3">
+              <legend className="form__legend">speciális étkezési igény</legend>
+
+              <FormCheckbox
+                id="glutenfree"
+                label="gluténmentes"
+                checked={foodGlutenFreeInput}
+                changeHandler={foodGlutenFreeInputHandler}
+              />
+              <FormCheckbox
+                id="lactosefree"
+                label="laktózmentes"
+                checked={foodLactoseFreeInput}
+                changeHandler={foodLactoseFreeInputHandler}
+              />
+              <FormCheckbox
+                id="diabetic"
+                label="diabetikus"
+                checked={foodDiabeticInput}
+                changeHandler={foodDiabeticInputHandler}
+              />
             </fieldset>
             <div className="btn-group">
               <button className="btn btn--dark cta__btn" onClick={backHandler}>
@@ -277,9 +276,7 @@ const CTA = () => {
     const [foodGlutenFreeInput, setFoodGlutenFreeInput] = useState(false);
     const [foodLactoseFreeInput, setFoodLactoseFreeInput] = useState(false);
     const [foodDiabeticInput, setFoodDiabeticInput] = useState(false);
-    const [addPartnerInput, setAddPartnerInput] = useState(true);
-
-    const dispatch = useDispatch();
+    const [addPartnerInput, setAddPartnerInput] = useState(false);
 
     const currentPartnerData = useSelector(
       (state: AppState) =>
@@ -293,24 +290,19 @@ const CTA = () => {
         }
     );
 
-    console.log(currentPartnerData);
-
     const _updateForm = useCallback(() => {
-      console.log("updating form");
-
       setFirstNameInput(currentPartnerData.firstName);
       setLastNameInput(currentPartnerData.lastName);
       setNickNameInput(currentPartnerData.nickName);
       setFoodGlutenFreeInput(currentPartnerData.foodGlutenFree);
       setFoodLactoseFreeInput(currentPartnerData.foodLactoseFree);
       setFoodDiabeticInput(currentPartnerData.foodDiabetic);
+      setAddPartnerInput(!!guestData.partner);
     }, [currentPartnerData]);
 
     useEffect(() => {
-      console.log("useEffect run");
-
       _updateForm();
-    }, [_updateForm]);
+    }, []);
 
     const backHandler = () => {
       setReplyPhase(1);
@@ -328,9 +320,12 @@ const CTA = () => {
           foodLactoseFree: foodLactoseFreeInput,
           foodDiabetic: foodDiabeticInput,
         };
-
-        dispatch(addPartner(updatedPartnerData));
-      } else {
+        if (!guestData.partner) {
+          dispatch(addPartner(updatedPartnerData));
+        } else {
+          dispatch(updatePartner(updatedPartnerData));
+        }
+      } else if (guestData.partner) {
         dispatch(deletePartner());
       }
 
@@ -407,31 +402,29 @@ const CTA = () => {
               changeHandler={firstNameInputHandler}
               value={firstNameInput}
             />
-            <fieldset className="u-mt-3">
-              <legend>speciális étkezési igény</legend>
-              <div className="u-mt-1">
-                <FormCheckbox
-                  id="glutenfree"
-                  label="gluténmentes"
-                  disabled={!addPartnerInput}
-                  checked={foodGlutenFreeInput}
-                  changeHandler={foodGlutenFreeInputHandler}
-                />
-                <FormCheckbox
-                  id="lactosefree"
-                  label="laktózmentes"
-                  disabled={!addPartnerInput}
-                  checked={foodLactoseFreeInput}
-                  changeHandler={foodLactoseFreeInputHandler}
-                />
-                <FormCheckbox
-                  id="diabetic"
-                  label="diabetikus"
-                  disabled={!addPartnerInput}
-                  checked={foodDiabeticInput}
-                  changeHandler={foodDiabeticInputHandler}
-                />
-              </div>
+            <fieldset className="form__fieldset u-mt-3">
+              <legend className="form__legend">speciális étkezési igény</legend>
+              <FormCheckbox
+                id="glutenfree"
+                label="gluténmentes"
+                disabled={!addPartnerInput}
+                checked={foodGlutenFreeInput}
+                changeHandler={foodGlutenFreeInputHandler}
+              />
+              <FormCheckbox
+                id="lactosefree"
+                label="laktózmentes"
+                disabled={!addPartnerInput}
+                checked={foodLactoseFreeInput}
+                changeHandler={foodLactoseFreeInputHandler}
+              />
+              <FormCheckbox
+                id="diabetic"
+                label="diabetikus"
+                disabled={!addPartnerInput}
+                checked={foodDiabeticInput}
+                changeHandler={foodDiabeticInputHandler}
+              />
             </fieldset>
 
             <div className="btn-group">
@@ -474,7 +467,7 @@ const CTA = () => {
           <ul>
             {guestData.children.map((child) => (
               <li key={child.id}>
-                <ChildDataCard {...child} />
+                <ChildDataCard child={child} />
               </li>
             ))}
             <li>

@@ -11,6 +11,7 @@ import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 
 import { fetchOneById } from "./store/single-guest-slice";
+import YourData from "./pages/YourData";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const App = () => {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/details" element={<Details />} />
+          <Route path="/guest-data" element={<YourData />} />
           <Route path="/" element={<Auth />} />
         </Routes>
       </Layout>

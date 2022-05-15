@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../store/auth-slice";
 
-import flowerTop from "../../assets/img/flowertop.png";
+import flowerTop from "../../assets/img/flowertop.webp";
 
 const NavMenu = (props: {
   toggled: boolean;

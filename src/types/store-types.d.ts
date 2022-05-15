@@ -22,5 +22,6 @@ export interface UiState {
   showUpdateGuest: boolean;
   showUpdatePartner: boolean;
   showUpdateChild: boolean;
+  showUpdateResponse: boolean;
   currentChildId: string;
 }

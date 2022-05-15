@@ -9,6 +9,14 @@
   margin: 5rem auto;
   overflow: hidden;
 
+  &--grid {
+    margin: 0;
+  }
+
+  &--big {
+    min-width: 90rem;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -47,6 +55,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__container {
+    display: inline-block;
   }
 
   &__close-btn {

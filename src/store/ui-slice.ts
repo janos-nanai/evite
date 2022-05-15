@@ -8,6 +8,7 @@ const initialState: UiState = {
   showUpdateGuest: false,
   showUpdatePartner: false,
   showUpdateChild: false,
+  showUpdateResponse: false,
   currentChildId: "",
 };
 
@@ -45,6 +46,12 @@ const uiSlice = createSlice({
     closeUpdateChildModal(state) {
       state.showUpdateChild = false;
     },
+    openUpdateResponseModal(state) {
+      state.showUpdateResponse = true;
+    },
+    closeUpdateResponseModal(state) {
+      state.showUpdateResponse = false;
+    },
     setCurrentChildId(state, action) {
       state.currentChildId = action.payload;
     },
@@ -62,6 +69,8 @@ export const {
   closeUpdatePartnerModal,
   openUpdateChildModal,
   closeUpdateChildModal,
+  openUpdateResponseModal,
+  closeUpdateResponseModal,
   setCurrentChildId,
 } = uiSlice.actions;
 

@@ -9,14 +9,17 @@
   &,
   &:link,
   &:visited {
-    display: block;
+    display: inline-flex;
     font-size: a.$font-size-default;
     line-height: 1;
     cursor: pointer;
     border-radius: 4rem;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     text-decoration: none;
     text-transform: uppercase;
+    gap: 0.3rem;
+    align-content: center;
+    text-align: center;
   }
 
   &__nav {
@@ -32,13 +35,11 @@
     &,
     &:link,
     &:visited {
-      border: 1px solid;
+      border: none;
       color: a.$primary-color-dark;
       background-color: a.$active-color;
-      border-color: a.$active-color;
     }
     &:hover {
-      // color: a.$primary-color-light;
       background-color: a.$success-color;
     }
   }

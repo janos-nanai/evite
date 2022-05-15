@@ -1,6 +1,6 @@
 import React from "react";
 
-import flowerBot from "../../assets/img/flowerbot.png";
+import flowerBot from "../../assets/img/flowerbot.webp";
 
 const MainFooter = () => {
   return (

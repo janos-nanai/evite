@@ -15,7 +15,6 @@ import { closeUpdateGuestModal } from "../../../store/ui-slice";
 import Card from "../../UI/Card";
 import FormInput from "../FormInput";
 import FormCheckbox from "../FormCheckbox";
-import FormRadio from "../FormRadio";
 
 const UpdateGuest = () => {
   const [lastNameInput, setLastNameInput] = useState("");
@@ -118,34 +117,10 @@ const UpdateGuest = () => {
     setFoodDiabeticInput(event.target.checked);
   };
 
-  const yesHandler = () => {
-    setIsComingInput(true);
-  };
-
-  const noHandler = () => {
-    setIsComingInput(false);
-  };
-
   return (
     <Card title="saját adatok" asOverlay onClose={closeHandler}>
       <form action="submit" onSubmit={submitHandler}>
-        <fieldset>
-          <legend>jössz?</legend>
-          <FormRadio
-            id="yes"
-            name="coming"
-            label="igen"
-            changeHandler={yesHandler}
-            checked={isComingInput}
-          />
-          <FormRadio
-            id="no"
-            name="coming"
-            label="nem"
-            changeHandler={noHandler}
-            checked={!isComingInput}
-          />
-        </fieldset>
+      
         <div className="u-mt-3">
           <FormInput
             id="lname"
