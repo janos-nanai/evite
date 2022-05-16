@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../components/UI/Card";
 import { login } from "../store/auth-slice";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
+import FormInput from "../components/Form/FormInput";
 
 const Auth = () => {
   const [idInput, setIdInput] = useState("");
@@ -56,35 +57,26 @@ const Auth = () => {
   }, []);
 
   return (
-    <Card title="belépés">
+    <Card title="belépés" asOverlay>
       <React.Fragment>
         {authState.isLoading && <LoadingSpinner asOverLay />}
 
         <form className="form" action="submit" onSubmit={submitHandler}>
-          <div className="form__input-container">
-            <label className="form__label" htmlFor="id">
-              azonosító
-            </label>
-            <input
-              className="form__input"
-              type="text"
-              id="id"
-              value={idInput}
-              onChange={idInputChangeHandler}
-            />
-          </div>
-          <div className="form__input-container">
-            <label className="form__label" htmlFor="password">
-              jelszó
-            </label>
-            <input
-              className="form__input"
-              type="password"
-              id="password"
-              value={passInput}
-              onChange={passInputChangeHandler}
-            />
-          </div>
+          <FormInput
+            id="id"
+            label="azonosító"
+            type="text"
+            changeHandler={idInputChangeHandler}
+            value={idInput}
+          />
+          <FormInput
+            id="password"
+            label="jelszó"
+            type="password"
+            changeHandler={passInputChangeHandler}
+            value={passInput}
+          />
+
           <div className="u-mt-5">
             <button className="btn btn--light" type="submit">
               tovább

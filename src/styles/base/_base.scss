@@ -17,6 +17,12 @@ body {
   background-color: a.$primary-color-dark;
 }
 
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: a.$zindex-mid;
+}
+
 li {
   list-style: none;
 }

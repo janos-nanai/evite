@@ -3,8 +3,6 @@ import { AppState } from "../../types/store-types";
 import React, { ReactChild } from "react";
 
 import LoadingSpinner from "../UI/LoadingSpinner";
-import MainFooter from "./MainFooter";
-import MainNavigation from "./MainNavigation";
 import NewPartner from "../Form/FormModals/NewPartner";
 import NewChild from "../Form/FormModals/NewChild";
 import UpdateGuest from "../Form/FormModals/UpdateGuest";
@@ -36,9 +34,7 @@ const Layout = (props: { children: ReactChild | ReactChild[] }) => {
       {showUpdateChild && <UpdateChild />}
       {showUpdateResponse && <UpdateResponse />}
 
-      <MainNavigation />
-      <main>{props.children}</main>
-      <MainFooter />
+      {props.children}
     </React.Fragment>
   );
 };

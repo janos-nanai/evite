@@ -5,6 +5,7 @@
   min-height: 64rem;
   position: relative;
   background-color: a.$primary-color-darker;
+  z-index: inherit;
 }
 
 .section-invite {
@@ -13,6 +14,7 @@
   letter-spacing: 0.3rem;
   font-size: a.$font-size-xl;
   text-transform: uppercase;
+  z-index: a.$zindex-mid;
 
   @include a.respond(tab-sm) {
     font-size: a.$font-size-lg;
@@ -29,6 +31,7 @@
 }
 
 .section-cta {
+  z-index: a.$zindex-mid;
   padding: 3rem 0;
   background-color: a.$primary-color-darker;
 }

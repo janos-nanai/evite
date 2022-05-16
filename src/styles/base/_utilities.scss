@@ -61,4 +61,8 @@
   &-front-above {
     z-index: a.$zindex-front-above;
   }
+
+  &-modal {
+    z-index: a.$zindex-modal;
+  }
 }

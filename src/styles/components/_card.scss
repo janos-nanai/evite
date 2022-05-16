@@ -18,7 +18,7 @@
   }
 
   &--grid {
-    margin: 0;
+    margin: auto;
   }
 
   &--big {
@@ -79,10 +79,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: a.$zindex-backdrop;
   }
 
   &__container {
-    display: inline-block;
+    margin: auto;
   }
 
   &__close-btn {

@@ -9,8 +9,10 @@ const FormInput = (props: {
   disabled?: boolean;
 }) => {
   return (
-    <div className="form__input-container">
-      <label htmlFor={props.id}>{props.label}</label>
+    <div className="form__input-container form__input-container--col">
+      <label className="form__label" htmlFor={props.id}>
+        {props.label}
+      </label>
       <input
         className="form__input"
         id={props.id}

@@ -6,21 +6,31 @@
 
   &__input-container {
     display: flex;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+
+    &--col {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   &__label {
     flex: 1;
     font-size: a.$font-size-default;
+
+    @include a.respond(tab-port) {
+      font-size: a.$font-size-sm;
+    }
   }
 
   &__input {
     flex: 3;
     font-size: a.$font-size-default;
     border: 1px solid a.$primary-color-dark;
-    border-radius: 2rem;
-    padding: 0 1rem;
+    border-radius: 7px;
+    padding: 0.5rem 1rem;
   }
 
   &__fieldset {
