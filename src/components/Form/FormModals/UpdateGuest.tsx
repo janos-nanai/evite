@@ -120,7 +120,6 @@ const UpdateGuest = () => {
   return (
     <Card title="saját adatok" asOverlay onClose={closeHandler}>
       <form action="submit" onSubmit={submitHandler}>
-      
         <div className="u-mt-3">
           <FormInput
             id="lname"
@@ -156,8 +155,8 @@ const UpdateGuest = () => {
           />
         </div>
 
-        <fieldset className="u-mt-3">
-          <legend>speciális étkezési igény</legend>
+        <fieldset className="form__fieldset u-mt-3">
+          <legend className="form__legend">speciális étkezési igény</legend>
           <div className="u-mt-1">
             <FormCheckbox
               id="glutenfree"

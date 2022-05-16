@@ -69,7 +69,7 @@ const UpdatePartner = () => {
 
     dispatch(closeUpdatePartnerModal());
   };
-  
+
   const closeHandler = () => {
     dispatch(closeUpdatePartnerModal());
   };
@@ -114,8 +114,8 @@ const UpdatePartner = () => {
           value={firstNameInput}
         />
 
-        <fieldset className="u-mt-3">
-          <legend>speciális étkezési igény</legend>
+        <fieldset className="form__fieldset u-mt-3">
+          <legend className="form__legend">speciális étkezési igény</legend>
           <div className="u-mt-1">
             <FormCheckbox
               id="glutenfree"

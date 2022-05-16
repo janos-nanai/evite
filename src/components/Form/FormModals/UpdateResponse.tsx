@@ -57,8 +57,8 @@ const UpdateResponse = () => {
   return (
     <Card title="visszajelzésed" asOverlay onClose={closeHandler}>
       <form action="submit" onSubmit={submitHandler}>
-        <fieldset>
-          <legend>jössz?</legend>
+        <fieldset className="form__fieldset">
+          <legend className="form__legend">jössz?</legend>
           <FormRadio
             id="yes"
             name="coming"
