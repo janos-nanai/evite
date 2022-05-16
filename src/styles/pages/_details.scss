@@ -1,0 +1,139 @@
+@use "../abstracts/" as a;
+
+.details {
+  &__section-timetable {
+    margin: 17rem 5rem 9rem;
+    
+    @include a.respond(mobile-lg) {
+      margin: 17rem 2rem 9rem;
+    }
+  }
+  &__time {
+    font-family: "SweetHipster";
+    color: a.$secondary-color-pink-1;
+    font-size: 7rem;
+    height: 9rem;
+
+    @include a.respond(tab-sm) {
+      font-size: 5rem;
+      height: 5.5rem;
+    }
+  }
+
+  &__timetable-event {
+    text-transform: uppercase;
+    font-size: a.$font-size-default;
+    letter-spacing: 0.2rem;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-sm;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-xs;
+    }
+  }
+
+  &__place {
+    text-transform: uppercase;
+    font-size: a.$font-size-lg;
+    font-weight: 200;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-default;
+      letter-spacing: 0.1rem;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-sm;
+    }
+  }
+
+  &__address {
+    text-transform: uppercase;
+    font-size: a.$font-size-sm;
+    letter-spacing: 0.3rem;
+
+    @include a.respond(tab-sm) {
+      font-size: a.$font-size-xs;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: a.$font-size-2xs;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+
+    @include a.respond(mobile-lg) {
+      gap: 1rem;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 30vw;
+    min-width: 24rem;
+
+    @include a.respond(tab-sm) {
+      min-width: 13rem;
+    }
+
+    @include a.respond(mobile-lg) {
+      min-width: 12rem;
+    }
+  }
+
+  &__right {
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    border-left: 7px solid a.$active-color;
+    
+    @include a.respond(tab-sm) {
+      border-left: 3px solid a.$active-color;
+    }
+
+    @include a.respond(mobile-lg) {
+      padding: 2rem 1.1rem;
+    }
+  }
+
+  &__section-gifts {
+    margin: 0 0 10rem;
+  }
+
+  &__sub-title {
+    font-family: "SweetHipster";
+    color: a.$secondary-color-pink-1;
+    font-size: 11rem;
+    font-weight: 100;
+    text-align: center;
+
+    @include a.respond(tab-sm) {
+      font-size: 9rem;
+    }
+
+    @include a.respond(mobile-lg) {
+      font-size: 7rem;
+    }
+
+    @include a.respond(mobile-sm) {
+      font-size: 5rem;
+    }
+  }
+
+  &__gift-para {
+    text-align: center;
+
+    @include a.respond(mobile-sm) {
+      font-size: a.$font-size-sm;
+    }
+  }
+}
