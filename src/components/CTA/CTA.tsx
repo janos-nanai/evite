@@ -149,9 +149,9 @@ const CTA = () => {
       event.preventDefault();
 
       const updatedGuestData: GuestDataUpdate = {
-        firstName: firstNameInput,
-        lastName: lastNameInput,
-        nickName: nickNameInput,
+        firstName: firstNameInput.trim(),
+        lastName: lastNameInput.trim(),
+        nickName: nickNameInput.trim(),
         email: emailInput,
         phone: phoneInput,
         isComing: isComingInput,
@@ -166,11 +166,11 @@ const CTA = () => {
     };
 
     const lastNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      setLastNameInput(event.target.value.trim());
+      setLastNameInput(event.target.value);
     };
 
     const firstNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      setFirstNameInput(event.target.value.trim());
+      setFirstNameInput(event.target.value);
     };
 
     const emailInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -313,9 +313,9 @@ const CTA = () => {
 
       if (addPartnerInput) {
         const updatedPartnerData: PartnerData = {
-          firstName: firstNameInput,
-          lastName: lastNameInput,
-          nickName: nickNameInput,
+          firstName: firstNameInput.trim(),
+          lastName: lastNameInput.trim(),
+          nickName: nickNameInput.trim(),
           foodGlutenFree: foodGlutenFreeInput,
           foodLactoseFree: foodLactoseFreeInput,
           foodDiabetic: foodDiabeticInput,
@@ -333,11 +333,11 @@ const CTA = () => {
     };
 
     const lastNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      setLastNameInput(event.target.value.trim());
+      setLastNameInput(event.target.value);
     };
 
     const firstNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      setFirstNameInput(event.target.value.trim());
+      setFirstNameInput(event.target.value);
     };
 
     const foodGlutenFreeInputHandler = (

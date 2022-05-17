@@ -56,7 +56,7 @@ export const updatePartner = createAsyncThunk(
   async (partnerChangeData: {}, { getState }) => {
     const state = getState() as AppState;
     const id = state.singleGuest.data!._id;
-    const response = await axios.patch(`${API_URL}/${id}`, partnerChangeData);
+    const response = await axios.patch(`${API_URL}/${id}/partner`, partnerChangeData);
     return response.data;
   }
 );

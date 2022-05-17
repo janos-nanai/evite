@@ -24,9 +24,9 @@ const NewChild = () => {
     event.preventDefault();
 
     const newChildData: ChildData = {
-      firstName: firstNameInput,
-      lastName: lastNameInput,
-      nickName: nickNameInput,
+      firstName: firstNameInput.trim(),
+      lastName: lastNameInput.trim(),
+      nickName: nickNameInput.trim(),
       age: ageInput,
       foodGlutenFree: foodGlutenFreeInput,
       foodLactoseFree: foodLactoseFreeInput,
@@ -51,11 +51,11 @@ const NewChild = () => {
   };
 
   const firstNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setFirstNameInput(event.target.value.trim());
+    setFirstNameInput(event.target.value);
   };
 
   const lastNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setLastNameInput(event.target.value.trim());
+    setLastNameInput(event.target.value);
   };
 
   const ageInputHandler = (event: ChangeEvent<HTMLInputElement>) => {

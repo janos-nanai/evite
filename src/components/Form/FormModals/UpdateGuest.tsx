@@ -56,9 +56,9 @@ const UpdateGuest = () => {
     event.preventDefault();
 
     const updatedGuestData: GuestDataUpdate = {
-      firstName: firstNameInput,
-      lastName: lastNameInput,
-      nickName: nickNameInput,
+      firstName: firstNameInput.trim(),
+      lastName: lastNameInput.trim(),
+      nickName: nickNameInput.trim(),
       email: emailInput,
       phone: phoneInput,
       isComing: isComingInput,
@@ -88,11 +88,11 @@ const UpdateGuest = () => {
   };
 
   const lastNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setLastNameInput(event.target.value.trim());
+    setLastNameInput(event.target.value);
   };
 
   const firstNameInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setFirstNameInput(event.target.value.trim());
+    setFirstNameInput(event.target.value);
   };
 
   const emailInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
